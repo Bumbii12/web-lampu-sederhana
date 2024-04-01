@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LAMPU JS</title>
+</head>
+<body>
+    <!-- STYLE CSS -->
+    <style>
+        button {
+            cursor: pointer;
+            color: #fff; /* Warna teks */
+            border: none; /* Hapus border */
+            border-radius: 25px; /* Sudut bulat */
+            padding: 10px 20px; /* Padding */
+            font-size: 16px; /* Ukuran font */
+            transition: background-color 0.3s; /* Efek transisi */
+            margin-left: 183px;
+        }
+        .button-on {
+            background-color: #F39F5A;
+        }
+        .button-off {
+            background-color: #451952;
+        }
+        button:hover {
+            transform: rotate(5deg);
+        }
+        h1 {
+            margin-left: 110px;
+        }
+    </style>
+    <img src="assets/img/off.gif" alt="lampu mati" id="lampu1">
+    <h1>Saklar Lampu⬇️</h1>
+    <button id="toggleButton" class="button-off" onclick="toggleButton()">OFF</button>
+
+    <!-- SCRIPT SAKLAR -->
+
+    <script>
+        function toggleButton() {
+            var button = document.getElementById("toggleButton");
+            if (button.innerHTML === "OFF") {
+                button.innerHTML = "ON";
+                button.classList.remove("button-off");
+                button.classList.add("button-on");
+                // Panggil fungsi saat tombol ON ditekan
+                saklarhidupinlampu();
+            } else {
+                button.innerHTML = "OFF";
+                button.classList.remove("button-on");
+                button.classList.add("button-off");
+                // Panggil fungsi saat tombol OFF ditekan
+                saklarmatiinlampu();
+            }
+        }
+
+    </script>
+
+    <!-- SCRIPT LAMPU -->
+
+    <script>
+        function saklarhidupinlampu() {
+            console.log('testing saklar hidupin');
+            let lampu1 = document.getElementById("lampu1");
+            console.log(lampu1.src);
+            lampu1.src = 'assets/img/on.gif'   
+        }
+
+        function saklarmatiinlampu() {
+            console.log('testing saklar matiin');
+            let lampu1 = document.getElementById("lampu1");
+            console.log(lampu1.src);
+            lampu1.src = 'assets/img/off.gif'
+        }
+    </script>
+</body>
+</html>
